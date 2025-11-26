@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Доступная версия | Наш сайт</title>
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="a11y-styles.css">
+</head>
+<body>
+    <!-- Skip link для быстрой навигации -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+    
+    <header role="banner">
+        <nav class="nav" aria-label="Основная навигация">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <span class="sr-only">На главную страницу</span>
+                    Портфолио
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню навигации">
+                    <span class="hamburger" aria-hidden="true"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="index.html" class="nav-link" role="menuitem">Главная</a>
+                    </li>
+                    <li role="none">
+                        <a href="projects.html" class="nav-link" role="menuitem">Проекты</a>
+                    </li>
+                    <li role="none">
+                        <a href="contacts-accessible.html" class="nav-link" role="menuitem" aria-current="page">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="section" aria-labelledby="contacts-heading">
+            <div class="container">
+                <header class="section-header">
+                    <h1 id="contacts-heading" class="section-title">Свяжитесь с нами</h1>
+                    <p class="section-description">Мы всегда рады вашим вопросам и предложениям</p>
+                </header>
+                
+                <div class="contact-grid">
+                    <!-- Контактная информация -->
+                    <section class="contact-info" aria-labelledby="contact-info-heading">
+                        <h2 id="contact-info-heading" class="visually-hidden">Контактная информация</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>
+                                    <a href="mailto:student@example.com" class="contact-link">
+                                        student@example.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📞</div>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>
+                                    <a href="tel:+79991234567" class="contact-link">
+                                        +7 (999) 123-45-67
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">📍</div>
+                            <div>
+                                <h3>Адрес</h3>
+                                <p>г. Москва, ул. Примерная, д. 123</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon" aria-hidden="true">🕒</div>
+                            <div>
+                                <h3>Время работы</h3>
+                                <p>Пн-Пт: 9:00-18:00<br>Сб-Вс: выходной</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Форма обратной связи -->
+                    <section class="contact-form-section" aria-labelledby="form-heading">
+                        <h2 id="form-heading" class="form-title">Форма обратной связи</h2>
+                        
+                        <form class="adaptive-form" id="contact-form" novalidate aria-describedby="form-instructions">
+                            <p id="form-instructions" class="form-instructions">
+                                Все поля, отмеченные звёздочкой (<span class="required-asterisk" aria-hidden="true">*</span>), обязательны для заполнения.
+                            </p>
+                            
+                            <!-- Группа персональных данных -->
+                            <fieldset class="form-fieldset">
+                                <legend class="fieldset-legend">Персональные данные</legend>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">
+                                            Имя <span class="required-asterisk" aria-hidden="true">*</span>
+                                            <span class="sr-only">обязательное поле</span>
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            id="name" 
+                                            name="name" 
+                                            class="form-input" 
+                                            required 
+                                            aria-required="true"
+                                            aria-describedby="name-hint"
+                                            autocomplete="name">
+                                        <small id="name-hint" class="form-hint">
+                                            Введите ваше полное имя
+                                        </small>
+                                        <span id="name-error" class="error-message" aria-live="polite"></span>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">
+                                            Email <span class="required-asterisk" aria-hidden="true">*</span>
+                                            <span class="sr-only">обязательное поле</span>
+                                        </label>
+                                        <input 
+                                            type="email" 
+                                            id="email" 
+                                            name="email" 
+                                            class="form-input" 
+                                            required 
+                                            aria-required="true"
+                                            aria-describedby="email-hint"
+                                            autocomplete="email">
+                                        <small id="email-hint" class="form-hint">
+                                            Мы отправим ответ на этот адрес
+                                        </small>
+                                        <span id="email-error" class="error-message" aria-live="polite"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Группа сообщения -->
+                            <fieldset class="form-fieldset">
+                                <legend class="fieldset-legend">Сообщение</legend>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">
+                                        Тема <span class="required-asterisk" aria-hidden="true">*</span>
+                                        <span class="sr-only">обязательное поле</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="subject" 
+                                        name="subject" 
+                                        class="form-input" 
+                                        required 
+                                        aria-required="true"
+                                        aria-describedby="subject-hint">
+                                    <small id="subject-hint" class="form-hint">
+                                        Кратко опишите тему вашего сообщения
+                                    </small>
+                                    <span id="subject-error" class="error-message" aria-live="polite"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="category" class="form-label">Категория</label>
+                                    <select 
+                                        id="category" 
+                                        name="category" 
+                                        class="form-select"
+                                        aria-describedby="category-hint">
+                                        <option value="">Выберите категорию</option>
+                                        <option value="general">Общие вопросы</option>
+                                        <option value="technical">Техническая поддержка</option>
+                                        <option value="feedback">Обратная связь</option>
+                                        <option value="partnership">Сотрудничество</option>
+                                    </select>
+                                    <small id="category-hint" class="form-hint">
+                                        Это поможет нам быстрее обработать ваш запрос
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">
+                                        Сообщение <span class="required-asterisk" aria-hidden="true">*</span>
+                                        <span class="sr-only">обязательное поле</span>
+                                    </label>
+                                    <textarea 
+                                        id="message" 
+                                        name="message" 
+                                        rows="6" 
+                                        class="form-textarea" 
+                                        required 
+                                        aria-required="true"
+                                        aria-describedby="message-hint"
+                                        placeholder="Опишите ваш вопрос или предложение..."></textarea>
+                                    <small id="message-hint" class="form-hint">
+                                        Подробно опишите вашу ситуацию для лучшего понимания
+                                    </small>
+                                    <span id="message-error" class="error-message" aria-live="polite"></span>
+                                </div>
+                            </fieldset>
+
+                            <!-- Группа уведомлений -->
+                            <fieldset class="form-fieldset">
+                                <legend class="fieldset-legend">Уведомления</legend>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input 
+                                        type="checkbox" 
+                                        id="newsletter" 
+                                        name="newsletter" 
+                                        class="form-checkbox">
+                                    <label for="newsletter" class="checkbox-label">
+                                        Подписаться на email-рассылку с новостями и обновлениями
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input 
+                                        type="checkbox" 
+                                        id="agreement" 
+                                        name="agreement" 
+                                        class="form-checkbox" 
+                                        required 
+                                        aria-required="true">
+                                    <label for="agreement" class="checkbox-label">
+                                        Я согласен с <a href="#privacy-policy" class="inline-link">политикой конфиденциальности</a>
+                                        <span class="required-asterisk" aria-hidden="true">*</span>
+                                        <span class="sr-only">обязательное поле</span>
+                                    </label>
+                                    <span id="agreement-error" class="error-message" aria-live="polite"></span>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-actions">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary"
+                                    aria-describedby="submit-hint">
+                                    Отправить сообщение
+                                </button>
+                                <button 
+                                    type="reset" 
+                                    class="btn btn-secondary"
+                                    aria-label="Очистить форму">
+                                    Очистить
+                                </button>
+                                <small id="submit-hint" class="form-hint">
+                                    После отправки мы свяжемся с вами в течение 24 часов
+                                </small>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Вспомогательная информация -->
+        <section class="section section--light" aria-labelledby="faq-heading">
+            <div class="container">
+                <h2 id="faq-heading" class="section-title">Часто задаваемые вопросы</h2>
+                <div class="faq-grid">
+                    <details class="faq-item" open>
+                        <summary class="faq-question">
+                            Как быстро вы отвечаете на сообщения?
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Мы стараемся отвечать на все сообщения в течение 24 часов в рабочие дни.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            Можно ли связаться через мессенджеры?
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Да, мы доступны в Telegram и WhatsApp по номеру +7 (999) 123-45-67.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            Предоставляете ли вы консультации?
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Да, мы предоставляем бесплатные первичные консультации по проектам.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Портфолио студента. Все права защищены.</p>
+                <nav aria-label="Дополнительная навигация">
+                    <ul class="footer-links">
+                        <li><a href="#privacy-policy">Политика конфиденциальности</a></li>
+                        <li><a href="#terms">Условия использования</a></li>
+                        <li><a href="#accessibility">Доступность</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="a11y-script.js"></script>
+</body>
+</html>

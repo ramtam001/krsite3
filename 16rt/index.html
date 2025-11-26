@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивные изображения - Демо</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Адаптивные изображения</h1>
+            <p class="header__subtitle">Демонстрация современных техник с картинками 1-10</p>
+        </header>
+
+        <main class="main">
+            <!-- Секция 1: Простое адаптивное изображение -->
+            <section class="section">
+                <h2 class="section__title">1. Базовое адаптивное изображение</h2>
+                <div class="image-container">
+                    <img src="images/1.jpeg"
+                         alt="Изображение 1 - Горный пейзаж с озером"
+                         class="responsive-image">
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Изображение занимает 100% ширины контейнера</li>
+                        <li>Высота автоматически рассчитывается для сохранения пропорций</li>
+                        <li>Работает на всех устройствах</li>
+                        <li><strong>Используется:</strong> 1.jpeg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 2: Picture element с разными версиями -->
+            <section class="section">
+                <h2 class="section__title">2. Picture element с форматами</h2>
+                <div class="image-container">
+                    <picture>
+                        <!-- WebP для современных браузеров -->
+                        <source srcset="images/2.webp" type="image/webp">
+                        <!-- JPEG для старых браузеров -->
+                        <source srcset="images/2.jpeg" type="image/jpeg">
+                        <!-- Фолбэк -->
+                        <img src="images/2.jpeg"
+                             alt="Изображение 2 - Городской пейзаж с небоскребами"
+                             class="responsive-image">
+                    </picture>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Браузер выбирает лучший формат (WebP или JPEG)</li>
+                        <li>Автоматическое переключение между форматами</li>
+                        <li>Фолбэк для старых браузеров</li>
+                        <li><strong>Используется:</strong> 2.jpeg и 2.webp</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 3: Разные изображения для разных размеров экрана -->
+            <section class="section">
+                <h2 class="section__title">3. Разные изображения для разных экранов</h2>
+                <div class="image-container">
+                    <picture>
+                        <!-- Большое изображение для десктопов -->
+                        <source media="(min-width: 1200px)"
+                                srcset="images/3-large.jpeg">
+                        <!-- Среднее для планшетов -->
+                        <source media="(min-width: 768px)"
+                                srcset="images/3-medium.jpeg">
+                        <!-- Маленькое для мобильных -->
+                        <img src="images/3-small.jpeg"
+                             alt="Изображение 3 - Лесной пейзаж в разном разрешении"
+                             class="responsive-image">
+                    </picture>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Десктопы: 3-large.jpeg (1200px+)</li>
+                        <li>Планшеты: 3-medium.jpeg (768px-1199px)</li>
+                        <li>Мобильные: 3-small.jpeg (до 767px)</li>
+                        <li>Браузер сам выбирает подходящее изображение</li>
+                        <li><strong>Используется:</strong> 3-small.jpeg, 3-medium.jpeg, 3-large.jpeg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 4: Retina display поддержка -->
+            <section class="section">
+                <h2 class="section__title">4. Поддержка Retina дисплеев</h2>
+                <div class="image-container">
+                    <img src="images/4@1x.jpeg"
+                         srcset="images/4@1x.jpeg 1x, images/4@2x.jpeg 2x"
+                         alt="Изображение 4 - Морской берег с поддержкой Retina"
+                         class="retina-image">
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li>Обычные экраны: 4@1x.jpeg</li>
+                        <li>Retina экраны: 4@2x.jpeg (в 2 раза четче)</li>
+                        <li>Автоматическое определение плотности пикселей</li>
+                        <li><strong>Используется:</strong> 4@1x.jpeg и 4@2x.jpeg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 5: Object-fit демонстрация -->
+            <section class="section">
+                <h2 class="section__title">5. Object-fit свойства</h2>
+                <div class="object-fit-demo">
+                    <div class="object-fit-item">
+                        <img src="images/5.jpeg"
+                             alt="Изображение 5 - Пустынный пейзаж (cover)"
+                             class="object-fit-cover">
+                        <span>object-fit: cover</span>
+                    </div>
+                    <div class="object-fit-item">
+                        <img src="images/6.jpeg"
+                             alt="Изображение 6 - Горный хребет (contain)"
+                             class="object-fit-contain">
+                        <span>object-fit: contain</span>
+                    </div>
+                    <div class="object-fit-item">
+                        <img src="images/7.jpeg"
+                             alt="Изображение 7 - Водопад (fill)"
+                             class="object-fit-fill">
+                        <span>object-fit: fill</span>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li><strong>cover</strong> - заполняет контейнер, обрезая края</li>
+                        <li><strong>contain</strong> - вписывает полностью, могут быть поля</li>
+                        <li><strong>fill</strong> - растягивает, искажая пропорции</li>
+                        <li><strong>Используется:</strong> 5.jpeg, 6.jpeg, 7.jpeg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 6: Адаптивная галерея с картинками 1-10 -->
+            <section class="section">
+                <h2 class="section__title">6. Адаптивная галерея (все картинки 1-10)</h2>
+                <div class="gallery">
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/1.jpeg"
+                                 alt="Изображение 1 - Горный пейзаж с озером"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 1</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/2.webp"
+                                 alt="Изображение 2 - Городской пейзаж с небоскребами"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 2</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/3-small.jpeg"
+                                 alt="Изображение 3 - Лесной пейзаж"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 3</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/4@1x.jpeg"
+                                 alt="Изображение 4 - Морской берег"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 4</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/5.jpeg"
+                                 alt="Изображение 5 - Пустынный пейзаж"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 5</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/6.jpeg"
+                                 alt="Изображение 6 - Горный хребет"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 6</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/7.jpeg"
+                                 alt="Изображение 7 - Водопад"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 7</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/8.jpeg"
+                                 alt="Изображение 8 - Зимний лес"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 8</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/9.jpeg"
+                                 alt="Изображение 9 - Тропический пляж"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 9</div>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <div class="gallery__image-container">
+                            <img src="images/10.jpeg"
+                                 alt="Изображение 10 - Город ночью"
+                                 class="gallery__image"
+                                 loading="lazy">
+                            <div class="gallery__caption">Изображение 10</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Что происходит:</h3>
+                    <ul>
+                        <li><strong>На десктопах:</strong> 4 изображения в ряд</li>
+                        <li><strong>На планшетах:</strong> 2 изображения в ряд</li>
+                        <li><strong>На мобильных:</strong> 1 изображение в ряд</li>
+                        <li><strong>Особенности:</strong> Плавное масштабирование, подписи к изображениям, lazy loading</li>
+                        <li><strong>Используются:</strong> Все картинки 1-10 для демонстрации полной коллекции</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Секция 7: Адаптивные формы с фоновым изображением -->
+            <section class="section">
+                <h2 class="section__title">7. Адаптивные формы с фоновым изображением</h2>
+                <div class="form-with-background">
+                    <form class="adaptive-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Категория</label>
+                            <select id="category" name="category">
+                                <option value="">Выберите категорию</option>
+                                <option value="general">Общие вопросы</option>
+                                <option value="technical">Техническая поддержка</option>
+                                <option value="feedback">Обратная связь</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                            <button type="reset" class="btn btn-secondary">Сбросить</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Секция 8: Адаптивная таблица с иконками -->
+            <section class="section">
+                <h2 class="section__title">8. Адаптивная таблица с превью изображений</h2>
+                <div class="table-container">
+                    <table class="adaptive-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Изображение</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="ID">1</td>
+                                <td data-label="Изображение">
+                                    <img src="images/1.jpeg" alt="Превью 1" class="table-image">
+                                </td>
+                                <td data-label="Название">Горный пейзаж</td>
+                                <td data-label="Описание">Красивый вид на горы и озеро</td>
+                                <td data-label="Статус"><span class="status active">Активен</span></td>
+                                <td data-label="Действия">
+                                    <button class="btn btn-small">Просмотр</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="ID">2</td>
+                                <td data-label="Изображение">
+                                    <img src="images/2.jpeg" alt="Превью 2" class="table-image">
+                                </td>
+                                <td data-label="Название">Городской вид</td>
+                                <td data-label="Описание">Современные небоскребы мегаполиса</td>
+                                <td data-label="Статус"><span class="status active">Активен</span></td>
+                                <td data-label="Действия">
+                                    <button class="btn btn-small">Просмотр</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="ID">3</td>
+                                <td data-label="Изображение">
+                                    <img src="images/3-small.jpeg" alt="Превью 3" class="table-image">
+                                </td>
+                                <td data-label="Название">Лесной пейзаж</td>
+                                <td data-label="Описание">Зеленый лес в солнечный день</td>
+                                <td data-label="Статус"><span class="status pending">На модерации</span></td>
+                                <td data-label="Действия">
+                                    <button class="btn btn-small">Просмотр</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Секция 9: Дополнительные примеры использования -->
+            <section class="section">
+                <h2 class="section__title">9. Дополнительные примеры использования</h2>
+                <div class="additional-examples">
+                    <div class="example-item">
+                        <h3>Фоновое изображение с overlay</h3>
+                        <div class="background-example" style="background-image: url('images/8.jpeg');">
+                            <div class="background-overlay">
+                                <h4>Зимний лес</h4>
+                                <p>Используется изображение 8.jpeg в качестве фона</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <h3>Изображение с текстом поверх</h3>
+                        <div class="image-with-text">
+                            <img src="images/9.jpeg" alt="Тропический пляж">
+                            <div class="text-overlay">
+                                <h4>Тропический рай</h4>
+                                <p>Используется изображение 9.jpeg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-item">
+                        <h3>Круглое изображение</h3>
+                        <div class="circle-image-container">
+                            <img src="images/10.jpeg" alt="Город ночью" class="circle-image">
+                            <p>Используется изображение 10.jpeg</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Использованы все картинки от 1 до 10! Измените размер окна браузера чтобы увидеть адаптивность в действии!</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Портфолио студента</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+    
+    <header class="header">
+        <nav class="nav" aria-label="Основная навигация">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">Портфолио</a>
+                <ul class="nav-menu">
+                    <li><a href="#about" class="nav-link">Обо мне</a></li>
+                    <li><a href="projects.реьд" class="nav-link">Проекты</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main" class="main">
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-greeting">Привет, я покаритель миров</h1>
+                    <p class="hero-description">Изучаю пивоварение</p>
+                </div>
+                <figure class="hero-image">
+                    <!-- Простая версия с shreder.jpeg -->
+                    <img class="hero-photo"
+                         src="shreder.jpeg"
+                         width="200" height="200"
+                         alt="Портрет студента"
+                         loading="eager">
+                </figure>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+                <div class="prose">
+                    <p>Увлекаюсь покданием планет</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-preview">
+            <div class="container">
+                <h2 class="section-title">Мои проекты</h2>
+                <div class="projects-area">
+                    <div class="projects-preview-grid">
+                        <article class="project-card">
+                            <h3 class="project-card-title">Проект 1</h3>
+                            <p class="project-card-description">Создание молекулы водорода</p>
+                        </article>
+                        <article class="project-card">
+                            <h3 class="project-card-title">Проект 2</h3>
+                            <p class="project-card-description">Новые методы лоботомии</p>
+                        </article>
+                        <article class="project-card">
+                            <h3 class="project-card-title">Проект 3</h3>
+                            <p class="project-card-description">Создание майнкрафт сервера</p>
+                        </article>
+                        <article class="project-card">
+                            <h3 class="project-card-title">Проект 4</h3>
+                            <p class="project-card-description">поспал 9 часов вместо 5</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" aria-describedby="email-hint email-error" required>
+                        <small id="email-hint" class="visually-hidden">Мы пришлём ответ на этот адрес</small>
+                        <span id="email-error" class="visually-hidden" role="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Портфолио студента. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

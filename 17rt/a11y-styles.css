@@ -1,0 +1,455 @@
+/* Стили для доступности */
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 10000;
+    transition: top 0.2s ease;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Скрытие элементов для скринридеров */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Улучшенные стили фокуса */
+*:focus {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Убираем outline для мыши, но оставляем для клавиатуры */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Навигация */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid transparent;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -6px;
+}
+
+.hamburger::after {
+    top: 6px;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger {
+    background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Формы */
+.form-instructions {
+    background: #f0f9ff;
+    border: 2px solid #bae6fd;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 2rem;
+    color: #0369a1;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.required-asterisk {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.form-fieldset {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: #f8fafc;
+}
+
+.fieldset-legend {
+    font-weight: 700;
+    color: #1e293b;
+    padding: 0 12px;
+    margin-left: -12px;
+    font-size: 1.25rem;
+    background: white;
+    border-radius: 6px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+    transition: all 0.2s ease;
+    line-height: 1.5;
+    color: #1f2937;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    background: #fff;
+}
+
+.form-input:invalid:not(:focus):not(:placeholder-shown),
+.form-textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.error-message {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.875rem;
+    color: #dc2626;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Checkbox группа */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.form-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.checkbox-label {
+    font-weight: normal;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #374151;
+}
+
+/* FAQ */
+.faq-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.faq-item {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+.faq-question {
+    padding: 20px 24px;
+    background: #f8fafc;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    position: relative;
+    margin: 0;
+    font-size: 1.125rem;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.faq-item[open] .faq-question::after {
+    content: '−';
+}
+
+.faq-question:focus {
+    outline: 3px solid #2563eb;
+    outline-offset: -3px;
+    background: #eff6ff;
+}
+
+.faq-answer {
+    padding: 24px;
+    background: #fff;
+    border-top: 2px solid #e2e8f0;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* Действия формы */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+/* Состояния для высокого контраста */
+@media (prefers-contrast: high) {
+    .form-input,
+    .form-select,
+    .form-textarea {
+        border-width: 3px;
+        border-color: #000;
+    }
+    
+    .nav-link:focus,
+    .btn:focus {
+        outline: 3px solid #000;
+        outline-offset: 1px;
+    }
+    
+    .contact-item {
+        border: 2px solid #000;
+    }
+}
+
+/* Уменьшение движения */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .skip-link {
+        transition: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .form-fieldset {
+        background: #1e293b;
+        border-color: #475569;
+    }
+    
+    .form-instructions {
+        background: #1e3a8a;
+        border-color: #3b82f6;
+        color: #dbeafe;
+    }
+    
+    .contact-item {
+        background: #1e293b;
+        border-color: #475569;
+    }
+    
+    .faq-item {
+        background: #1e293b;
+        border-color: #475569;
+    }
+    
+    .faq-question {
+        background: #334155;
+        color: #f1f5f9;
+    }
+    
+    .faq-answer {
+        background: #1e293b;
+        color: #cbd5e1;
+        border-top-color: #475569;
+    }
+    
+    .checkbox-group {
+        background: #1e293b;
+        border-color: #475569;
+    }
+    
+    .checkbox-label {
+        color: #e2e8f0;
+    }
+}
+
+/* Адаптивность для форм */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        flex-direction: column;
+        padding: 20px;
+        gap: 1rem;
+    }
+    
+    .nav-menu[aria-expanded="true"] {
+        display: flex;
+    }
+    
+    .form-fieldset {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Печать */
+@media print {
+    .skip-link,
+    .nav-toggle,
+    .btn-secondary {
+        display: none;
+    }
+    
+    .form-instructions {
+        background: none;
+        border: 2px solid #000;
+        color: #000;
+    }
+    
+    .contact-item {
+        break-inside: avoid;
+    }
+}

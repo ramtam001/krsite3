@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Доступная версия</title>
+    <meta name="description" content="Свяжитесь с нами через доступную форму обратной связи">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+
+    <header role="banner">
+        <div class="container">
+            <h1>Свяжитесь с нами</h1>
+            <p>Мы всегда рады помочь вам!</p>
+        </div>
+    </header>
+
+    <main role="main" id="main-content" class="container">
+        <section class="contact-info" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Контактная информация</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Примерная, д. 123</p>
+                    <p class="help-text">Ближайшее метро: Центральная</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Телефон</h3>
+                    <p><a href="tel:+74951234567" style="color: #005603; text-decoration: none;">+7 (495) 123-45-67</a></p>
+                    <p class="help-text">Пн-Пт с 9:00 до 18:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@company.com" style="color: #005603; text-decoration: none;">info@company.com</a></p>
+                    <p class="help-text">Ответим в течение 24 часов</p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading" class="visually-hidden">Форма обратной связи</h2>
+            <form aria-labelledby="form-heading" class="contact-info">
+                <!-- Поле имени -->
+                <div class="form-group">
+                    <label for="name">
+                        Имя <span class="required" aria-hidden="true">*</span>
+                        <span class="visually-hidden">обязательное поле</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="name-error name-help"
+                        aria-invalid="false">
+                    <div id="name-error" class="error" role="alert">
+                        Поле обязательно для заполнения
+                    </div>
+                    <div id="name-help" class="help-text">
+                        Введите ваше полное имя
+                    </div>
+                </div>
+
+                <!-- Поле email -->
+                <div class="form-group">
+                    <label for="email">Email адрес</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        aria-describedby="email-help">
+                    <div id="email-help" class="help-text">
+                        Мы отправим ответ на этот адрес
+                    </div>
+                </div>
+
+                <!-- Выпадающий список -->
+                <div class="form-group">
+                    <label for="topic">Тема обращения</label>
+                    <select id="topic" name="topic" aria-describedby="topic-help">
+                        <option value="">Выберите тему</option>
+                        <option value="question">Общий вопрос</option>
+                        <option value="complaint">Жалоба на обслуживание</option>
+                        <option value="suggestion">Предложение по улучшению</option>
+                        <option value="partnership">Сотрудничество</option>
+                    </select>
+                    <div id="topic-help" class="help-text">
+                        Выберите наиболее подходящую тему для вашего обращения
+                    </div>
+                </div>
+
+                <!-- Текстовая область -->
+                <div class="form-group">
+                    <label for="message">Ваше сообщение</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="6"
+                        aria-describedby="message-help"
+                        placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                    <div id="message-help" class="help-text">
+                        Опишите вашу проблему или вопрос подробно. Максимум 1000 символов.
+                    </div>
+                </div>
+
+                <button type="submit" aria-label="Отправить форму обратной связи">
+                    Отправить сообщение
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2024 Наша Компания. Все права защищены.</p>
+            <p>Сделано с ♥ для всех пользователей</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
